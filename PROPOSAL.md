@@ -2,7 +2,7 @@
 
 We are to develop a 3D printing e-commerce using blockchain (ethereum).
 
-<img src="Images/867.gif" width=150 height=150 align="left"/> The e-commerce sells a selection of `3D templates ethereum coins`, which can be ordered in either blue or pink. Depending on the selection, the buyer `pays` in ether and send the order to the 3D printer `third party` provider. 
+<img src="images/867.gif" width=150 height=150 align="left"/> The e-commerce sells a selection of `3D templates ethereum coins`, which can be ordered in either blue or pink. Depending on the selection, the buyer `pays` in ether and send the order to the 3D printer `third party` provider. 
 
 The project is anticipated to consists of  3 sections, with each section developed with its own blockchain address. The three sections are:
 
@@ -14,7 +14,7 @@ The project is anticipated to consists of  3 sections, with each section develop
 
 See below for project configuration.
 
-![proposal modules](Images/proposal_modules.png)
+![proposal modules](images/proposal_modules.png)
 
 ## Resources:
 

@@ -54,7 +54,7 @@ Info here
 
 ## Sources
 
-- [1]
+- [1] https://developers.shapeways.com/quick-start
 
 - [2] 
 

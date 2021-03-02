@@ -13,6 +13,7 @@ contract Memorabillia is ERC721Full {
     struct ColorToken {
         string name;
         string description;
+        uint price;
 
     }
 
@@ -20,14 +21,14 @@ contract Memorabillia is ERC721Full {
 
     event tokenOrder(uint token_id, uint value, string order_uri);
 
-    function registerColorToken(address owner, string memory name, string memory description, string memory token_uri) public returns(uint) {
+    function orderPrint(address buyer, string memory name, string memory description, uint price, string memory token_uri) public payable returns(uint) {
         token_ids.increment();
         uint token_id = token_ids.current();
 
-        _mint(owner, token_id);
+        _mint(buyer, token_id);
         _setTokenURI(token_id, token_uri);
 
-        memorabillia_collection[token_id] = ColorToken(name, description);
+        memorabillia_collection[token_id] = ColorToken(name, description, price);
 
         return token_id;
 

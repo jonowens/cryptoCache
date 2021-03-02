@@ -9,7 +9,6 @@ contract Memorabillia is ERC721Full {
         
     }
     
-    uint price = 1000000000000000000;
     
     
     using Counters for Counters.Counter;
@@ -26,7 +25,12 @@ contract Memorabillia is ERC721Full {
 
     event tokenOrder(uint token_id, uint price, string order_uri);
 
-    function orderPrint(address buyer, string memory name, string memory description, uint price_paid, string memory token_uri) public payable returns(uint) {
+    function orderPrint(address buyer, string memory name, string memory description, string memory token_uri) public payable returns(uint) {
+        
+        uint price  = 1000000000000000000;
+        uint price_paid = msg.value;
+        require (price_paid >= price);
+        
         token_ids.increment();
         uint token_id = token_ids.current();
 
@@ -36,6 +40,9 @@ contract Memorabillia is ERC721Full {
         memorabillia_collection[token_id] = ColorToken(name, description, price_paid);
 
         return token_id;
+
         
     }
+
+
 }

@@ -15,9 +15,10 @@ contract Memorabillia is ERC721Full {
         Counters.Counter token_ids;
 
     struct ColorToken {
-        string name;
+        string token_name;
         string description;
-      
+        uint price;
+        string shipping_address;
 
     }
 
@@ -26,12 +27,11 @@ contract Memorabillia is ERC721Full {
     event tokenOrder(uint token_id, uint price, string order_uri);
     
     
-    function orderPrint(address buyer, string memory name, string memory description, string memory token_uri) public payable returns(uint) {
+    function orderPrint(address buyer, string memory token_name, string memory description, string memory shipping_address, string memory token_uri) public payable returns(uint) {
         
-        uint price;
+        uint price = 1000000000000000000;
         uint price_paid = msg.value;
         require (price_paid >= price);
-        
         
         token_ids.increment();
         uint token_id = token_ids.current();
@@ -39,20 +39,18 @@ contract Memorabillia is ERC721Full {
         _mint(buyer, token_id);
         _setTokenURI(token_id, token_uri);
       
-        memorabillia_collection[token_id] = ColorToken(name, description);
+        memorabillia_collection[token_id] = ColorToken(token_name, description, price, shipping_address);
 
         return token_id;
 
     }
     
-    
     uint public price;
 
-        function setPrice(uint newPrice) public {
+    function setPrice(uint newPrice) private {
         require(newPrice > 0);
         price = newPrice;
 
-        }
-
+    }
 
 }

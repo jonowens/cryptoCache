@@ -10,25 +10,44 @@ contract Memorabilia is ERC721Full {
     }
     
     
-    
     using Counters for Counters.Counter;
         Counters.Counter token_ids;
 
-    struct ColorToken {
-        string token_name;
-        string description;
-        uint price;
-        string shipping_address;
+    struct OrderData {
+      
+        string items;
+        string name;
+        string country;
+        string state;
+        string city;
+        string _address;
+        uint zipCode;
+        uint phoneNumber;
+       
 
     }
 
-    mapping(uint => ColorToken) public memorabilia_collection;
+    mapping(uint => OrderData) public memorabilia_token;
 
     event tokenOrder(uint token_id, uint price, string order_uri);
     
     
-    function orderPrint(address buyer, string memory token_name, string memory description, string memory shipping_address, string memory token_uri) public payable returns(uint) {
+    function orderPrint(
         
+        address buyer, 
+        string memory items,
+        string memory name,
+        string memory country,
+        string memory state,
+        string memory city,
+        string memory _address,
+        uint zipCode,
+        uint phoneNumber,
+        string memory token_uri
+        
+        ) public payable returns(uint) {
+        
+       
         uint price = 1000000000000000000;
         uint price_paid = msg.value;
         require (price_paid >= price);
@@ -40,20 +59,21 @@ contract Memorabilia is ERC721Full {
         _mint(buyer, token_id);
         _setTokenURI(token_id, token_uri);
       
-        memorabilia_collection[token_id] = ColorToken(token_name, description, price, shipping_address);
+        memorabilia_token[token_id] = OrderData(
+            
+            items, 
+            name,
+            country,
+            state,
+            city,
+            _address,
+            zipCode,
+            phoneNumber
+            
+            );
 
         return token_id;
 
     }
     
-    
-    uint public price;
-
-    function setPrice(uint newPrice) private {
-        require(newPrice > 0);
-        price = newPrice;
-
-    }
-
-
 }

@@ -91,3 +91,65 @@ def get_material_id(access_token, material_name):
       
       # Return material id when match found
       return materials_response.json()['materials'][key]['materialId']
+
+def submit_order(access_token, material_id, model_id, first_name, last_name, country_code, state_code, city, address1, address2, zipcode, phone_Number):
+  """Submits a shipping order to 3D printing company API
+  Args:
+    access_token (str): 
+    material_id (str): 
+    model_id (str): 
+    first_name (str): 
+    last_name (str): 
+    country_code (str): 
+    state_code (str): 
+    city (str): 
+    address1 (str): 
+    address2 (str): 
+    zipcode (str): 
+    phone_Number (str): 
+  Returns:
+    order_response (Dict): A dictoinary containing a 'result' status and a 'reason' discription
+  """
+
+  payment_verification_id =  os.getenv('PAYMENT_VERIFICATION_ID')
+  # Url to retrieve material data
+  api_url = 'https://api.shapeways.com/orders/v1'
+  
+  # Create item dictionary to purchase
+  items = [{
+    'materialId': material_id,
+    'modelId': model_id,
+    'quantity': 1
+  }]
+
+  # Create shipping order dictionary
+  order_data = {
+    'items': items,
+    'firstName' : first_name,
+    'lastName' : last_name,
+    # Only 2 digits
+    'country' : country_code,
+
+    'state' : state_code,
+    'city' : city,
+    'address1' : address1,
+    'address2' : address2,
+    'zipCode' : zipcode,
+    # Must be 10 digits for US numbers
+    'phoneNumber' : phone_Number,
+    'paymentVerificationId': payment_verification_id,
+    'paymentMethod': 'credit_card',
+    # 'Cheapest' or 'Fastest' are the only options
+    'shippingOption': 'Cheapest'
+  }
+
+  # Builds url header information
+  headers = {
+    'Authorization': 'Bearer ' + access_token
+  }
+  
+  # Post order and receive response
+  order_response = requests.post(url=api_url, headers=headers, data=json.dumps(order_data))
+  
+  # Return response
+  return order_response.json()

@@ -5,33 +5,54 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 
 contract Memorabillia is ERC721Full {
 
-    constructor() ERC721Full("PinkToken", "PNKT") public { }
-
+    constructor() ERC721Full("PinkToken", "PNKT") public {
+        
+    }
+    
+    
+    
     using Counters for Counters.Counter;
-    Counters.Counter token_ids;
+        Counters.Counter token_ids;
 
     struct ColorToken {
         string name;
         string description;
+      
 
     }
 
     mapping(uint => ColorToken) public memorabillia_collection;
 
-    event tokenOrder(uint token_id, uint value, string order_uri);
-
-    function registerColorToken(address owner, string memory name, string memory description, string memory token_uri) public returns(uint) {
+    event tokenOrder(uint token_id, uint price, string order_uri);
+    
+    
+    function orderPrint(address buyer, string memory name, string memory description, string memory token_uri) public payable returns(uint) {
+        
+        uint price;
+        uint price_paid = msg.value;
+        require (price_paid >= price);
+        
+        
         token_ids.increment();
         uint token_id = token_ids.current();
 
-        _mint(owner, token_id);
+        _mint(buyer, token_id);
         _setTokenURI(token_id, token_uri);
-
+      
         memorabillia_collection[token_id] = ColorToken(name, description);
 
         return token_id;
 
-        
     }
+    
+    
+    uint public price;
+
+        function setPrice(uint newPrice) public {
+        require(newPrice > 0);
+        price = newPrice;
+
+        }
+
 
 }

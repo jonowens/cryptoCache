@@ -14,16 +14,14 @@ contract Memorabilia is ERC721Full {
         Counters.Counter token_ids;
 
     struct OrderData {
-      
-        string items;
-        string name;
+        
+        string firstName;
+        string lastName;
         string country;
         string state;
         string city;
-        string _address;
+        string street_address;
         uint zipCode;
-        uint phoneNumber;
-       
 
     }
 
@@ -35,14 +33,13 @@ contract Memorabilia is ERC721Full {
     function orderPrint(
         
         address buyer, 
-        string memory items,
-        string memory name,
+        string memory firstName,
+        string memory lastName,
         string memory country,
         string memory state,
         string memory city,
-        string memory _address,
+        string memory street_address,
         uint zipCode,
-        uint phoneNumber,
         string memory token_uri
         
         ) public payable returns(uint) {
@@ -61,14 +58,13 @@ contract Memorabilia is ERC721Full {
       
         memorabilia_token[token_id] = OrderData(
             
-            items, 
-            name,
+            firstName,
+            lastName,
             country,
             state,
             city,
-            _address,
-            zipCode,
-            phoneNumber
+            street_address,
+            zipCode
             
             );
 

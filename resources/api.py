@@ -31,6 +31,8 @@ def request_api_access_token():
   
   # Post and request token data
   token_response = requests.post(url=url, data=post_data, auth=(client_id,client_secret))
+  
+  # Returns token id
   return token_response.json()['access_token']
 
 def get_model_id(access_token, model_name):

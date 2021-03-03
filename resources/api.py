@@ -57,3 +57,35 @@ def get_model_id(access_token, model_name):
   
   # Returns model id matching model name parameter from list
   return model_id[0]
+
+def get_material_id(access_token, material_name):
+  """Gets 3D printing company Material ID using Material Name
+  Args:
+    access_token (str): Current access token for business account
+    material_name (str): Material name stored with 3D printing company
+  Returns:
+    material_id (str): Material ID matching the parameter material name passed
+  """
+  # Url to retrieve material data
+  api_url = 'https://api.shapeways.com/materials/v1'
+  
+  # Builds url header information
+  headers = {
+    'Authorization': 'Bearer ' + access_token
+  }
+
+  # Gets material data
+  materials_response = requests.get(url=api_url +'?', headers=headers)
+
+  # Get a list of material keys
+  keys = materials_response.json()['materials'].keys()
+  
+  # Get material id by material name
+  # Loop through keys
+  for key in keys:
+
+    # Compare titles with each key
+    if materials_response.json()['materials'][key]['title'] == material_name:
+      
+      # Return material id when match found
+      return materials_response.json()['materials'][key]['materialId']

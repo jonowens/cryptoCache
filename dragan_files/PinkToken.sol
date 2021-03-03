@@ -3,7 +3,7 @@ pragma solidity ^0.5.0;
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC721/ERC721Full.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/drafts/Counters.sol";
 
-contract Memorabillia is ERC721Full {
+contract Memorabilia is ERC721Full {
 
     constructor() ERC721Full("PinkToken", "PNKT") public {
         
@@ -22,7 +22,7 @@ contract Memorabillia is ERC721Full {
 
     }
 
-    mapping(uint => ColorToken) public memorabillia_collection;
+    mapping(uint => ColorToken) public memorabilia_collection;
 
     event tokenOrder(uint token_id, uint price, string order_uri);
     
@@ -33,17 +33,19 @@ contract Memorabillia is ERC721Full {
         uint price_paid = msg.value;
         require (price_paid >= price);
         
+        
         token_ids.increment();
         uint token_id = token_ids.current();
 
         _mint(buyer, token_id);
         _setTokenURI(token_id, token_uri);
       
-        memorabillia_collection[token_id] = ColorToken(token_name, description, price, shipping_address);
+        memorabilia_collection[token_id] = ColorToken(token_name, description, price, shipping_address);
 
         return token_id;
 
     }
+    
     
     uint public price;
 
@@ -52,5 +54,6 @@ contract Memorabillia is ERC721Full {
         price = newPrice;
 
     }
+
 
 }

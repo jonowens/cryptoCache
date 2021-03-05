@@ -5,7 +5,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 
 contract BlueCoin is ERC721Full {
 
-    constructor() ERC721Full("BlueToken", "BLUEC") public {
+    constructor() ERC721Full("BlueToken", "BLUET") public {
         
     }
     

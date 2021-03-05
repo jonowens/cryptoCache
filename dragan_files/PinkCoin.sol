@@ -5,7 +5,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 
 contract PinkCoin is ERC721Full {
 
-    constructor() ERC721Full("PinkToken", "PINKC") public {
+    constructor() ERC721Full("PinkToken", "PINKT") public {
         
     }
     

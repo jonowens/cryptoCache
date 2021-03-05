@@ -3,15 +3,15 @@ pragma solidity ^0.5.0;
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC721/ERC721Full.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/drafts/Counters.sol";
 
-contract Memorabilia is ERC721Full {
+contract PinkCoin is ERC721Full {
 
-    constructor() ERC721Full("PinkToken", "PNKT") public {
+    constructor() ERC721Full("PinkToken", "PINKT") public {
         
     }
     
     
     using Counters for Counters.Counter;
-        Counters.Counter token_ids;
+        Counters.Counter tokenIds;
 
     struct OrderData {
         
@@ -20,14 +20,14 @@ contract Memorabilia is ERC721Full {
         string country;
         string state;
         string city;
-        string street_address;
+        string streetAddress;
         uint zipCode;
 
     }
 
-    mapping(uint => OrderData) public memorabilia_token;
+    mapping(uint => OrderData) public colorToken;
 
-    event tokenOrder(uint token_id, uint price, string order_uri);
+    event tokenOrder(uint tokenId, uint price, string orderUri);
     
     
     function orderPrint(
@@ -38,37 +38,37 @@ contract Memorabilia is ERC721Full {
         string memory country,
         string memory state,
         string memory city,
-        string memory street_address,
+        string memory streetAddress,
         uint zipCode,
-        string memory token_uri
+        string memory tokenUri
         
         ) public payable returns(uint) {
         
        
         uint price = 1000000000000000000;
-        uint price_paid = msg.value;
-        require (price_paid >= price);
+        uint pricePaid = msg.value;
+        require (pricePaid >= price);
         
         
-        token_ids.increment();
-        uint token_id = token_ids.current();
+        tokenIds.increment();
+        uint tokenId = tokenIds.current();
 
-        _mint(buyer, token_id);
-        _setTokenURI(token_id, token_uri);
+        _mint(buyer, tokenId);
+        _setTokenURI(tokenId, tokenUri);
       
-        memorabilia_token[token_id] = OrderData(
+        colorToken[tokenId] = OrderData(
             
             firstName,
             lastName,
             country,
             state,
             city,
-            street_address,
+            streetAddress,
             zipCode
             
             );
 
-        return token_id;
+        return tokenId;
 
     }
     

@@ -27,7 +27,7 @@ contract BlueCoin is ERC721Full {
 
     mapping(uint => OrderData) public colorToken;
 
-    event tokenOrder(uint tokenId, uint price, string orderUri);
+    event tokenOrder(uint tokenId);
     
     
     function orderPrint(
@@ -39,8 +39,7 @@ contract BlueCoin is ERC721Full {
         string memory state,
         string memory city,
         string memory streetAddress,
-        uint zipCode,
-        string memory tokenUri
+        uint zipCode
         
         ) public payable returns(uint) {
         
@@ -54,7 +53,6 @@ contract BlueCoin is ERC721Full {
         uint tokenId = tokenIds.current();
 
         _mint(buyer, tokenId);
-        _setTokenURI(tokenId, tokenUri);
       
         colorToken[tokenId] = OrderData(
             
@@ -68,7 +66,10 @@ contract BlueCoin is ERC721Full {
             
             );
 
+        emit tokenOrder(tokenId);
+        
         return tokenId;
+        
 
     }
     

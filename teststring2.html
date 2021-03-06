@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to join two strings into one new string.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var str1 = "http://127.0.0:5000?";
+  var str2 = "firstName";
+  var res = str1.concat(str2);
+  document.getElementById("demo").innerHTML = res;
+}
+</script>
+
+</body>
+
+</html>

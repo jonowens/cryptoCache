@@ -1,0 +1,21 @@
+<script type="text/javascript">
+    function generateFullName() {
+        document.getElementById('fullName').innerText =
+            'http://127.0.0.1:5000/blue_token_contract?firstName=' +
+            document.getElementById('fName').value + '&lastName=' +
+            document.getElementById('lName').value + '&country=' +
+            document.getElementByID('Country').value + '&state=' +
+            document.getElementByID('State').value + '&address1=' +
+            document.getElementByID('StreetNumber').value + '_' +
+            document.getElementByID('Streetname').value
+            ;
+    }
+</script>
+
+First Name <input type="text" id="fName" onkeyup="generateFullName()" /><br />
+Last Name <input type="text" id="lName" onkeyup="generateFullName()" /><br />
+Country <input type="text" id="Country" onkeyup="generateFullName()" /><br />
+State <input type="text" id="State" onkeyup="generateFullName()" /><br />
+Street Number <input type="text" id="StreetNumber" onkeyup="generateFullName()" /><br />
+Street name <input type="text" id="Streetname" onkeyup="generateFullName()" /><br />
+Full Name <span id="fullName" />

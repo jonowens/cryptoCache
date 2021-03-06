@@ -1,0 +1,9 @@
+import Web3 from 'web3';
+
+const web3 = new Web3(window.ethereum);
+await window.ethereum.enable();
+
+const NameContract = web3.eth.Contract(contract_abi, contract_address);
+
+NameContract.methods.getName().call();
+NameContract.methods.setName("bitsofcode").send();

@@ -10,13 +10,12 @@ contract PinkCoin is ERC721Full {
     }
     
     
-     using Counters for Counters.Counter;
+    using Counters for Counters.Counter;
         Counters.Counter tokenIds;
 
     struct OrderData {
         
-        string firstName;
-        string lastName;
+        address buyer;
         string country;
         string state;
         string city;
@@ -33,8 +32,6 @@ contract PinkCoin is ERC721Full {
     function orderPrint(
         
         address buyer, 
-        string memory firstName,
-        string memory lastName,
         string memory country,
         string memory state,
         string memory city,
@@ -56,8 +53,7 @@ contract PinkCoin is ERC721Full {
       
         colorToken[tokenId] = OrderData(
             
-            firstName,
-            lastName,
+            buyer,
             country,
             state,
             city,

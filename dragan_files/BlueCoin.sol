@@ -15,13 +15,12 @@ contract BlueCoin is ERC721Full {
 
     struct OrderData {
         
-        string firstName;
-        string lastName;
+        address buyer;
         string country;
         string state;
         string city;
         string streetAddress;
-        uint zipCode;
+        string zipCode;
 
     }
 
@@ -29,17 +28,15 @@ contract BlueCoin is ERC721Full {
 
     event tokenOrder(uint tokenId);
     
-    
     function orderPrint(
-        
+    
         address buyer, 
-        string memory firstName,
-        string memory lastName,
         string memory country,
         string memory state,
         string memory city,
         string memory streetAddress,
-        uint zipCode
+        string memory zipCode
+        
         
         ) public payable returns(uint) {
         
@@ -56,8 +53,7 @@ contract BlueCoin is ERC721Full {
       
         colorToken[tokenId] = OrderData(
             
-            firstName,
-            lastName,
+            buyer,
             country,
             state,
             city,
@@ -69,8 +65,8 @@ contract BlueCoin is ERC721Full {
         emit tokenOrder(tokenId);
         
         return tokenId;
-        
-
+    
     }
     
+
 }

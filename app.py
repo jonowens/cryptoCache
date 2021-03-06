@@ -1,10 +1,20 @@
 # import main Flask class and request object
-from flask import Flask, request
-import api
+from flask import Flask, request, jsonify, render_template
+from libs import api
 import json
 
 # create the Flask app
 app = Flask(__name__)
+
+# Capture and process (default)
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+# Capture and process order
+@app.route("/order")
+def order(self, args):
+    pass
 
 # Capture and process blue token order
 # test url
@@ -62,5 +72,5 @@ def process_pink_token_order():
     return f'<h1>Success for pink token: {order_response}</h1>'
 
 if __name__ == '__main__':
-    # run app in debug mode on port 5000
-    app.run(debug=True, port=5000)
+    # run app
+    app.run()

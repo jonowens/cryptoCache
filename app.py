@@ -19,11 +19,11 @@ def process_blue_token_order():
 
     # Call blue contract using passed token id for order information
     order_info = contract_api.pull_order_information(token_id, 'blue')
-    country = order_info['country']
-    state = order_info['state']
-    city = order_info['city']
-    address1 = order_info['address1']
-    zip_code = order_info['zip_code']
+    country = order_info[1]
+    state = order_info[2]
+    city = order_info[3]
+    address1 = order_info[4]
+    zip_code = order_info[5]
 
     access_token = api.request_api_access_token()
     
@@ -44,11 +44,11 @@ def process_pink_token_order():
 
     # Call blue contract using passed token id for order information
     order_info = contract_api.pull_order_information(token_id, 'pink')
-    country = order_info['country']
-    state = order_info['state']
-    city = order_info['city']
-    address1 = order_info['address1']
-    zip_code = order_info['zip_code']
+    country = order_info[1]
+    state = order_info[2]
+    city = order_info[3]
+    address1 = order_info[4]
+    zip_code = order_info[5]
 
     access_token = api.request_api_access_token()
     

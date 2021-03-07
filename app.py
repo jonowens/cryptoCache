@@ -13,9 +13,9 @@ def home():
 
 # Capture and process order
 @app.route("/order")
-def order(self, args):
+def order():
     data = request.args.get('contractReceipt')
-    return f'<h1>Contract Receipt Information: {data}</h1>'
+    return jsonify(data)
 
 
 # Capture and process blue token order

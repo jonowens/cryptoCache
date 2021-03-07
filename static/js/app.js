@@ -5,6 +5,7 @@ const dApp = {
     ethEnabled: function () {
         if (window.ethereum) {
             window.web3 = new Web3(window.ethereum);
+            console.log(window.ethereum); //to print out on the console
             window.ethereum.enable();
             return true;
         }

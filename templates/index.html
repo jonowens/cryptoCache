@@ -57,4 +57,30 @@
  <!-- dApp JavaScript -->
  <!--script src="dapp.js"></script> -->
 ​
+<script type="text/javascript">
+    function generateFullName()
+    {
+         document.getElementById('fullName').innerText = 
+	    'http://127.0.0.1:5000/blue_token_contract?firstName=' +
+            document.getElementById('fName').value + '&lastName=' +
+            document.getElementById('lName').value + '&country=' +
+	    document.getElementById('Country').value + '&state=' + 
+	    document.getElementById('State').value + '&address1=' +
+	    document.getElementById('strN').value + '_' +
+	    document.getElementById('streetName').value + '&zip=' +
+	    document.getElementById('zip').value
+    
+	  ;
+    }
+</script>
+
+First Name <input type="text" id="fName" onkeyup="generateFullName()" /><br/>
+Last Name <input type="text" id="lName" onkeyup="generateFullName()" /><br/>
+Country <input type="text" id="Country" onkeyup="generateFullName()" /><br/>
+State <input type="text" id="State" onkeyup="generateFullName()" /><br/>
+Street number <input type="text" id="strN" onkeyup="generateFullName()" /><br/>
+Street name <input type="text" id="streetName" onkeyup="generateFullName()" /><br/>
+Zipcode <input type="text" id="zip" onkeyup="generateFullName()" /><br/>
+URL <span id="fullName" />
+
 </html>

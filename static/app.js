@@ -57,7 +57,7 @@ const dApp = {
         this.pinkContractAddress = pinkContractAddress;
         this.blueContractAddress = blueContractAddress;
 
-        this.pinkJson = await (await fetch("./pinkContract.json")).json();
+        this.pinkJson = await (await fetch("../static/pinkContract.json")).json();
 
         this.pinkContract = new window.web3.eth.Contract(
             this.pinkJson,

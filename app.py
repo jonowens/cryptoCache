@@ -18,7 +18,7 @@ def process_blue_token_order():
     token_id = request.args.get('contractReceipt')
 
     # Call blue contract using passed token id for order information
-    order_info = contract_api.pull_order_information(token_id)
+    order_info = contract_api.pull_order_information(token_id, 'blue')
     country = order_info['country']
     state = order_info['state']
     city = order_info['city']
@@ -43,7 +43,7 @@ def process_pink_token_order():
     token_id = request.args.get('contractReceipt')
 
     # Call blue contract using passed token id for order information
-    order_info = contract_api.pull_order_information(token_id)
+    order_info = contract_api.pull_order_information(token_id, 'pink')
     country = order_info['country']
     state = order_info['state']
     city = order_info['city']

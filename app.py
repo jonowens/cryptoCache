@@ -14,7 +14,9 @@ def home():
 # Capture and process order
 @app.route("/order")
 def order(self, args):
-    pass
+    color = request.args.get('contractReceipt')
+    return f'<h1>Contract Receipt Information: {color}</h1>'
+
 
 # Capture and process blue token order
 # test url

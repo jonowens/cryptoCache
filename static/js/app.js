@@ -4,8 +4,8 @@ const blueContractAddress = "0xC86C8d3E16370dd76e73DdeEf15767E343331816";
 const dApp = {
     ethEnabled: function () {
         if (window.ethereum) {
-            window.web3 = new Web3(window.ethereum);
-            //window.web3 = new Web3(ethereum);
+            //window.web3 = new Web3(window.ethereum);
+            window.web3 = new Web3(ethereum);
             console.log(window.web3); //to print out on the console
             window.ethereum.enable();
             return true;

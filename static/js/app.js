@@ -1,4 +1,4 @@
-//Web3 = require('web3')
+Web3 = require('web3')
 
 let provider = ethers.getDefaultProvider('kovan');
 //let provider = new ethers.providers.Web3Provider(web3.currentProvider);

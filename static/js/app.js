@@ -1,5 +1,8 @@
 Web3 = require('web3')
 
+let provider = ethers.getDefaultProvider('kovan');
+let provider = new ethers.providers.Web3Provider(web3.currentProvider);
+
 const pinkContractAddress = "0x3607844eb2eC711279B2F1831E1784Bc7423713f";
 const blueContractAddress = "0xC86C8d3E16370dd76e73DdeEf15767E343331816";
 

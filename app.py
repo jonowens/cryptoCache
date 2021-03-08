@@ -12,7 +12,7 @@ def home():
     return render_template("index.html")
 
 # Capture and process blue token order
-@app.route('/blue_token_contract')
+@app.route('/order/blue')
 def process_blue_token_order():
     
     token_id = request.args.get('contractReceipt')
@@ -37,7 +37,7 @@ def process_blue_token_order():
 
 
 # Capture and process pink token order
-@app.route('/pink_token_contract')
+@app.route('/order/pink')
 def process_pink_token_order():
     
     token_id = request.args.get('contractReceipt')

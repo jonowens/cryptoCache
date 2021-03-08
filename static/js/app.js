@@ -44,7 +44,7 @@ const dApp = {
                 
                 console.log(receipt);
 
-                fetch(`/order?contractReceipt=${receipt}`)
+                fetch(`/order/${coinColor}?contractReceipt=${receipt}`)
                     .then((response) => {
                         console.log(response);
                         alert(response);
@@ -65,7 +65,7 @@ const dApp = {
         this.pinkContractAddress = pinkContractAddress;
         this.blueContractAddress = blueContractAddress;
 
-        this.pinkJson = await (await fetch("pinkContract.json")).json();
+        this.pinkJson = await (await fetch("../pinkContract.json")).json();
 
         this.pinkContract = new window.web3.eth.Contract(
             this.pinkJson,
@@ -74,7 +74,7 @@ const dApp = {
         );
 
 
-        this.blueJson = await (await fetch("./blueContract.json")).json();
+        this.blueJson = await (await fetch("../blueContract.json")).json();
 
         this.blueContract = new window.web3.eth.Contract(
             this.blueJson,

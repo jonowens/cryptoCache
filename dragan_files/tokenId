@@ -1,0 +1,2 @@
+,address,args,blockHash,blockNumber,event,logIndex,transactionHash,transactionIndex
+0,0xC86C8d3E16370dd76e73DdeEf15767E343331816,AttributeDict({'tokenId': 6}),b'oP\x9dh4Uw\xea\xdc\xbc\xf65\x18w\xf9\x95 r\xf2l\xee\xd5yg\xf6\xac%T\xce\xa8\x15\xb5',23829722,tokenOrder,21,"b""\x85\xc6\xff\x17k\xc0\xb0\x90\xb3\xafu%\xden\x01\xd6 \x10\x81j\xb5\xa7\xc5\xf9\x08'\xd5DGt\xf3\xe8""",8

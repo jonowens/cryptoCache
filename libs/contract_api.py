@@ -11,9 +11,9 @@ def push_to_contract(first_name, last_name):
     last_name = last_name
     return "This is a place holder.  It works."
 
-def pull_new_order_information():
+def pull_token_ids():
     
-    return "This is new order information.  It works."
+    return "This is new token ids.  It works."
 
 def pull_order_information(token_id, coin_color):
     # Instantiate variables

@@ -6,8 +6,16 @@ from web3 import Web3
 import os
 import json
 
-def pull_order_information(token_id, coin_color):
+def push_to_contract(first_name, last_name):
+    first_name = first_name
+    last_name = last_name
+    return "This is a place holder.  It works."
 
+def pull_new_order_information():
+    
+    return "This is new order information.  It works."
+
+def pull_order_information(token_id, coin_color):
     # Instantiate variables
     pink_contract_address = '0x3607844eb2eC711279B2F1831E1784Bc7423713f'
     blue_contract_address = '0xC86C8d3E16370dd76e73DdeEf15767E343331816'

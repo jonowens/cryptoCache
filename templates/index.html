@@ -29,13 +29,32 @@
 		<div class="col s12 m6">
 			<div class="card blue-grey darken-1">
 				<h5 style="color:white;"> Shipping Destination: </h5>
-				<span class="card-title"><input id="dapp-copyright-name" placeholder="First Name" /></span>
+
+				<form action="{{ url_for("gfg")}}" method="post"> 
+					<label for="address">Street address:</label> 
+					<input type="text" id="address" name="address1" placeholder="1234 Main st"> 
+					<label for="city">City:</label> 
+					<input type="text" id="city" name="city" placeholder="Houston"> 
+					<label for="state">State:</label>
+					<input type="text" id="state" name="state" placeholder="TX">
+					<label for="country">Country:</label>
+					<input type="text" id="country" name="country" placeholder="USA">
+					<label for="zipcode">Zipcode:</label>
+					<input type="text" id="zipcode" name="zipcode" placeholder="77003">
+					<label for="pink">Pink Coin</label>
+					<input type="radio" name="coincolor" id="pink" value="pink"><br>
+					<label for="blue">Blue Coin</label>
+					<input type="radio" name="coincolor" id="blue" value="blue"><br><br>
+					<button type="submit">purchase</button> 
+				</form>
+				<!--<span class="card-title"><input id="dapp-copyright-name" placeholder="First Name" /></span>
 				<span class="card-title"><input id="dapp-copyright-lastname" placeholder="Last Name" /></span>
 				<span class="card-title"><input id="dapp-copyright-address" placeholder="Street Address" /></span>
 				<span class="card-title"><input id="dapp-copyright-city" placeholder="City" /></span>
 				<span class="card-title"><input id="dapp-copyright-state" placeholder="State" /></span>
-				<span class="card-title"><input id="dapp-copyright-zipcode" placeholder="5 digits Zipcode" /></span>
+				<span class="card-title"><input id="dapp-copyright-zipcode" placeholder="5 digits Zipcode" /></span> -->
 				
+
 				</div>
 ​
 				<table>
@@ -48,7 +67,9 @@
 						<td><button class="btn" onclick="dApp.buyCoin('pink')">Buy Pink Coin</button></td>
 						<td><button class="btn" onclick="dApp.buyCoin('blue')">Buy Blue Coin</button></td>
 				</table>
-</body>
+
+				
+			</body>
 ​
  <!-- JQuery 3.4.1 slim minified -->
  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
@@ -85,4 +106,21 @@ Street name <input type="text" id="streetName" onkeyup="generateFullName()" /><b
 Zipcode <input type="text" id="zip" onkeyup="generateFullName()" /><br/>
 URL <span id="fullName" />
 
+<form action="{{ url_for("gfg")}}" method="post"> 
+	<label for="address">Street address:</label> 
+	<input type="text" id="address" name="address1" placeholder="1234 Main st"> 
+	<label for="city">City:</label> 
+	<input type="text" id="city" name="city" placeholder="Houston"> 
+	<label for="state">State:</label>
+	<input type="text" id="state" name="state" placeholder="TX">
+	<label for="country">Country:</label>
+	<input type="text" id="country" name="country" placeholder="USA">
+	<label for="zipcode">Zipcode:</label>
+	<input type="text" id="zipcode" name="zipcode" placeholder="77003">
+	<label for="pink">Pink Coin</label>
+	<input type="radio" name="coincolor" id="pink" value="pink"><br>
+	<label for="blue">Blue Coin</label>
+	<input type="radio" name="coincolor" id="blue" value="blue"><br><br>
+	<button type="submit">purchase</button> 
+</form>
 </html>

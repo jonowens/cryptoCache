@@ -21,16 +21,19 @@ def home():
 @app.route('/', methods =["GET", "POST"]) 
 def gfg(): 
 	#if request.method == "POST":
-    # getting input with name = fname in HTML form 
-    first_name = request.form.get("fname")
-    # getting input with name = lname in HTML form 
-    last_name = request.form.get("lname")
-    #return "Your name is "+first_name + last_name 
-    #return render_template("form.html")
+    # getting inputs from html form
+    buyer_address = request.form.get("buyerAddress")
+    city = request.form.get("city")
+    state = request.form.get("state")
+    zip = request.form.get("zip")
+    street = request.form.get("street")
+    country = request.form.get("country")
+    
     coin_color = request.form.get("ccolor")
+    #return render_template("form.html")
 
     # Push data to contract goes here
-    contract_response = contract_api.push_to_contract(first_name, last_name)
+    contract_response = contract_api.push_to_contract(coin_color, buyer_address, city, state, zip, street, country)
 
     if coin_color == 'blue':
         # Pull new order information from contract

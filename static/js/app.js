@@ -2,8 +2,8 @@
 let web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
 // let provider = new ethers.providers.Web3Provider(web3.currentProvider);
 
-const pinkContractAddress = "0x8Cd2F70Add62B7354a634A2D8d6FD84A2c182fE2";
-const blueContractAddress = "0x71E8B545989d1CdE5223b852e76270249EC75e17";
+const pinkContractAddress = "0x541b0A62B9Ff59370683EE40d22eaEB4eB231578";
+const blueContractAddress = "0x2E9974EC97D17181aFEE5e1e3F3CfD3237C7a079";
 
 const dApp = {
     ethEnabled: function () {

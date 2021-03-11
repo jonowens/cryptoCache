@@ -5,15 +5,6 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 
 contract BlueCoin is ERC721Full {
     
-    address payable owner;
-
-    modifier onlyOwner {
-        require(msg.sender == owner, "You are not the contract owner!");
-        _;
-    
-        
-    }
-
 
     constructor() ERC721Full("BlueToken", "BLUET") public {
         
@@ -80,13 +71,12 @@ contract BlueCoin is ERC721Full {
     }
     
     
-    function withdraw(uint withdraw_amount) public onlyOwner {
+    function withdraw(uint amount, address payable recipient) public {
         
-        
-        // Send the amount to the contract owner address that requested it 
-        
-        msg.sender.transfer(withdraw_amount);
-        
+    require(recipient == 0xA31b61b2aea2d93a3d424523a612e518F5aCA407 || recipient == 0x9C6a00F697354e0178a4e2C805718Ce10276839C, "You don't own this contract!");
+      
+      recipient.transfer(amount);
+
     }
     
     // Function to accept money into the contract (fallback function)

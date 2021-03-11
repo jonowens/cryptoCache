@@ -29,7 +29,6 @@ const dApp = {
 
     buyCoin: async function (coinColor) {
         let formData = await this.collectForm();
-        
         let contractColor = 
             coinColor === "pink" 
             ? this.pinkContract 
@@ -39,7 +38,7 @@ const dApp = {
         contractColor.methods.orderPrint(...Object.values(formData))
             .send({
                 from: this.accounts[0],
-                value: 1000000000000000000
+                value: 10000000000000
             })
             .on("receipt", (receipt)=>{
                 
@@ -85,6 +84,7 @@ const dApp = {
             this.blueContractAddress,
             { defaultAccount: this.accounts[0] }
         );
+
 
 
         await this.updateUI();

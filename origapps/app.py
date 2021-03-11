@@ -1,8 +1,7 @@
 # Import main Flask class and request object
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template
 from libs import printing_api, contract_api
 import json
-
 
 # Create the Flask app
 app = Flask(__name__)
@@ -19,7 +18,7 @@ def home():
 
 # A decorator used to tell the application 
 # which URL is associated function 
-@app.route('/order', methods =["GET", "POST"]) 
+@app.route('/', methods =["GET", "POST"]) 
 def gfg(): 
 	#if request.method == "POST":
     # getting inputs from html form
@@ -85,16 +84,7 @@ def gfg():
 
     return f'<h1>Contract response: {contract_response}.  Status response for {coin_color} token: {order_response}</h1>'
 
-@app.route('/pinkContract')
-def pinkContract():
-    with open('static/pinkContract.json') as f:
-        return jsonify(json.load(f))
-
-@app.route('/blueContract')
-def blueContract():
-    with open('static/blueContract.json') as f:
-        return jsonify(json.load(f))
 
 if __name__ == '__main__':
     # Run app
-    app.run(debug=True)
+    app.run()

@@ -8,9 +8,7 @@ import json
 app = Flask(__name__)
 
 # Instantiate variables
-contract_response = 'Default contract response'
-coin_color = 'white'
-order_response = 'Default order response'
+order_response = []
 
 # Capture and process (default)
 @app.route("/")
@@ -19,18 +17,21 @@ def home():
 
 # A decorator used to tell the application 
 # which URL is associated function 
-@app.route('/order')
-def order():
+@app.route('/newOrder')
+def newOrder():
+    #print(request.args)
+    #return request.args
+    
     # Get token color variable from URL
-    color_token = request.args.get('color_token')
+    coin_color = request.args.get('coinColor')
 
     # Pull new order information from contract
-    token_ids = contract_api.pull_token_ids(color_token)
+    token_ids = contract_api.pull_token_ids(coin_color)
     
     # loop here over new_order_data to process each order using token_id
     for token_id in token_ids:
         # Call blue contract using passed token id for order information
-        order_info = contract_api.pull_order_information(token_id, color_token)
+        order_info = contract_api.pull_order_information(token_id, coin_color)
         country = order_info[1]
         state = order_info[2]
         city = order_info[3]
@@ -39,16 +40,16 @@ def order():
 
         access_token = printing_api.request_api_access_token()
         
-        model_id = printing_api.get_model_id(access_token, color_token)
+        model_id = printing_api.get_model_id(access_token, coin_color)
         
-        if color_token == 'blue':
+        if coin_color == 'blue':
             material_id = printing_api.get_material_id(access_token, 'Blue Processed Versatile Plastic')
         else:
             material_id = printing_api.get_material_id(access_token, 'Pink Processed Versatile Plastic')
         
-        order_response = printing_api.submit_order(access_token, material_id, model_id, 'crypto', 'Cache', country, state, city, address1, '.', zip_code, '.')
-
-    return f'<h1>Contract response: {contract_response}.  Status response for {coin_color} token: {order_response}</h1>'
+        order_response.append(printing_api.submit_order(access_token, material_id, model_id, 'crypto', 'Cache', country, state, city, address1, '.', zip_code, '.'))
+    return order_response    
+    #return f'<h1>Status response for {coin_color} token order: {order_response}</h1>'
 
 @app.route('/pinkContract')
 def pinkContract():

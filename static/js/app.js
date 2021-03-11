@@ -44,10 +44,19 @@ const dApp = {
                 
                 console.log(receipt);
                 
-                alert(`Success: ${receipt.transactionHash}`)
+                console.log(`Success: ${receipt.transactionHash}
+                `)
 
-                console.log(receipt.transactionHash)
+                return receipt.transactionHash
             })
+            .then((txnhash)=>{
+                let txnData = formData;
+                txnData.coinColor = coinColor;
+                txnData.txnhash = txnhash;
+                let paramsObject = new URLSearchParams(Object.entries(txnData));
+                return fetch(`/newOrder?${paramsObject.toString()}`);
+            })
+            .then((res)=>console.log(res))
             .catch((err)=> console.log(err))
 
      },

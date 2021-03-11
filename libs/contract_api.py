@@ -10,8 +10,8 @@ import pandas as pd
 def push_to_contract(color_token, buyer_address, city, state, zip, street, country):
 
     # Code to instantiate contract goes here
-    pink_contract_address = '0x3607844eb2eC711279B2F1831E1784Bc7423713f'
-    blue_contract_address = '0xC86C8d3E16370dd76e73DdeEf15767E343331816'
+    pink_contract_address = '0x8Cd2F70Add62B7354a634A2D8d6FD84A2c182fE2'
+    blue_contract_address = '0x71E8B545989d1CdE5223b852e76270249EC75e17'
     
     project_key = os.getenv('INFURA_PROJECT_ID')
     w3 = Web3(Web3.HTTPProvider(f"https://kovan.infura.io/v3/{project_key}"))
@@ -39,8 +39,8 @@ def pull_token_ids(color_token):
 
     # Instantiate variable
     not_processed_token_ids = []
-    pink_contract_address = '0x3607844eb2eC711279B2F1831E1784Bc7423713f'
-    blue_contract_address = '0xC86C8d3E16370dd76e73DdeEf15767E343331816'
+    pink_contract_address = '0x8Cd2F70Add62B7354a634A2D8d6FD84A2c182fE2'
+    blue_contract_address = '0x71E8B545989d1CdE5223b852e76270249EC75e17'
     
     project_key = os.getenv('INFURA_PROJECT_ID')
     w3 = Web3(Web3.HTTPProvider(f"https://kovan.infura.io/v3/{project_key}"))
@@ -75,8 +75,8 @@ def pull_token_ids(color_token):
 
 def pull_order_information(token_id, coin_color):
     # Instantiate variables
-    pink_contract_address = '0x3607844eb2eC711279B2F1831E1784Bc7423713f'
-    blue_contract_address = '0xC86C8d3E16370dd76e73DdeEf15767E343331816'
+    pink_contract_address = '0x8Cd2F70Add62B7354a634A2D8d6FD84A2c182fE2'
+    blue_contract_address = '0x71E8B545989d1CdE5223b852e76270249EC75e17'
 
     load_dotenv()
 

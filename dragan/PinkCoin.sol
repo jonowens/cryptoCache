@@ -4,6 +4,15 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/drafts/Counters.sol";
 
 contract PinkCoin is ERC721Full {
+    
+    address payable owner;
+
+    modifier onlyOwner {
+        require(msg.sender == owner, "You are not the contract owner!");
+        _;
+    
+       
+    }
 
     constructor() ERC721Full("PinkToken", "PINKT") public {
         
@@ -28,6 +37,7 @@ contract PinkCoin is ERC721Full {
 
     event tokenOrder(uint tokenId);
     
+    // takes in input information from the buyer to place token print orderPrint
     
     function orderPrint(
         
@@ -41,9 +51,9 @@ contract PinkCoin is ERC721Full {
         ) public payable returns(uint) {
         
        
-        uint price = 1000000000000000000;
+        uint price = 10000000000000;
         uint pricePaid = msg.value;
-        require (pricePaid >= price);
+        require (pricePaid >= price, "You need to deposit exactly 10000000000000 wei");
         
         
         tokenIds.increment();
@@ -69,4 +79,18 @@ contract PinkCoin is ERC721Full {
 
     }
     
+    
+    function withdraw(uint withdraw_amount) public onlyOwner {
+        
+        
+        // Send the amount to the contract owner address that requested it
+        
+        msg.sender.transfer(withdraw_amount);
+        
+    }
+    
+    // Function to accept money into the contract (fallback function)
+    
+    function () external payable {}
+
 }

@@ -4,8 +4,19 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/drafts/Counters.sol";
 
 contract BlueCoin is ERC721Full {
+    
+    address payable owner;
+
+    modifier onlyOwner {
+        require(msg.sender == owner, "You are not the contract owner!");
+        _;
+    
+        
+    }
+
 
     constructor() ERC721Full("BlueToken", "BLUET") public {
+        
         
     }
     
@@ -20,7 +31,7 @@ contract BlueCoin is ERC721Full {
         string state;
         string city;
         string streetAddress;
-        string zipCode;
+        uint zipCode;
 
     }
 
@@ -28,22 +39,22 @@ contract BlueCoin is ERC721Full {
 
     event tokenOrder(uint tokenId);
     
-    function orderPrint(
     
+    function orderPrint(
+        
         address buyer, 
         string memory country,
         string memory state,
         string memory city,
         string memory streetAddress,
-        string memory zipCode
-        
+        uint zipCode
         
         ) public payable returns(uint) {
         
        
-        uint price = 1000000000000000000;
+        uint price = 10000000000000;
         uint pricePaid = msg.value;
-        require (pricePaid >= price);
+        require (pricePaid >= price, "You need to deposit exactly 10000000000000 wei!");
         
         
         tokenIds.increment();
@@ -65,8 +76,21 @@ contract BlueCoin is ERC721Full {
         emit tokenOrder(tokenId);
         
         return tokenId;
-    
+        
     }
     
+    
+    function withdraw(uint withdraw_amount) public onlyOwner {
+        
+        
+        // Send the amount to the contract owner address that requested it 
+        
+        msg.sender.transfer(withdraw_amount);
+        
+    }
+    
+    // Function to accept money into the contract (fallback function)
+    
+    function () external payable {}
 
 }

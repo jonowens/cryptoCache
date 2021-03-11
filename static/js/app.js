@@ -54,6 +54,7 @@ const dApp = {
                 txnData.coinColor = coinColor;
                 txnData.txnhash = txnhash;
                 let paramsObject = new URLSearchParams(Object.entries(txnData));
+
                 return fetch(`/newOrder?${paramsObject.toString()}`);
             })
             .then((res)=>console.log(res))

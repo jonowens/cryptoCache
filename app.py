@@ -47,7 +47,8 @@ def newOrder():
         else:
             material_id = printing_api.get_material_id(access_token, 'Pink Processed Versatile Plastic')
         
-        order_response.append(printing_api.submit_order(access_token, material_id, model_id, 'crypto', 'Cache', country, state, city, address1, '.', zip_code, '.'))
+        order_response = printing_api.submit_order(access_token, material_id, model_id, 'crypto', 'Cache', country, state, city, address1, '.', zip_code, '.')
+    
     return order_response    
     #return f'<h1>Status response for {coin_color} token order: {order_response}</h1>'
 

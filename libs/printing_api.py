@@ -58,7 +58,7 @@ def get_model_id(access_token, model_name):
   model_id = [model['modelId'] for model in models_response.json()['models'] if model['title'] == model_name]
   
   # Returns model id matching model name parameter from list
-  return model_id[0]
+  return model_id
 
 def get_material_id(access_token, material_name):
   """Gets 3D printing company Material ID using Material Name

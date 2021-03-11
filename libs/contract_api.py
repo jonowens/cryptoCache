@@ -20,13 +20,15 @@ def pull_token_ids(color_token):
     load_dotenv()
 
     if color_token == 'blue':
-        with open("./static/blueContract.json") as f:
+        #with open("./static/blueContract.json") as f:
+        with open("./static/BlueCoin.json") as f:
             info_json = json.load(f)
         abi = info_json["abi"]
         contract = w3.eth.contract(blue_contract_address, abi = abi)
     
     elif color_token == 'pink':
-        with open("./static/pinkContract.json") as f:
+        #with open("./static/pinkContract.json") as f:
+        with open("./static/PinkCoin.json") as f:
             info_json = json.load(f)
         abi = info_json["abi"]
         contract = w3.eth.contract(pink_contract_address, abi = abi)
@@ -57,7 +59,8 @@ def pull_order_information(token_id, coin_color):
     if coin_color == 'pink':
         w3 = Web3(Web3.HTTPProvider(f"https://kovan.infura.io/v3/{project_key}"))
 
-        with open("./static/pinkContract.json") as f:
+        #with open("./static/pinkContract.json") as f:
+        with open("./static/PinkCoin.json") as f:
             info_json = json.load(f)
         abi = info_json["abi"]
         
@@ -68,7 +71,8 @@ def pull_order_information(token_id, coin_color):
     elif coin_color == 'blue':
         w3 = Web3(Web3.HTTPProvider(f"https://kovan.infura.io/v3/{project_key}"))
 
-        with open("../static/blueContract.json") as f:
+        #with open("./static/blueContract.json") as f:
+        with open("./static/BlueCoin.json") as f:
             info_json = json.load(f)
         abi = info_json["abi"]
         

@@ -34,7 +34,7 @@ def pull_token_ids(color_token):
 
     order_filter = contract.events.tokenOrder.createFilter(fromBlock='earliest')
     all_orders = order_filter.get_all_entries()
-    data = pd.read_csv('../data/order.csv')
+    data = pd.read_csv('./data/order.csv')
 
 
     for order in all_orders[data['last_token_id'][0] : ]:

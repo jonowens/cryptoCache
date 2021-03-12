@@ -1,4 +1,4 @@
-# cryptoCache
+# CryptoCache Store
 Project3 for Rice University FinTech Bootcamp
 
 ---
@@ -18,31 +18,70 @@ Project3 for Rice University FinTech Bootcamp
 
 ## General Information
 
-Info here
+The purpose of this project is to design a webstore which will accept information from a user via a browser interface processing the information through Javascript into a Smart Contract located on the Ethereum blockchain.  Javascript will then initiate an orderPrint transaction which will process through Python code via Flask allowing for the user information to be sent on to a 3D printing company to print a desired Pink or Blue Token.
 
 ---
 
 ## Screenshots
 
-Info here
+
 
 ---
 
 ## Technologies
 
-Info here
+Python 3.7.7
+See [requirements.txt](requirements.txt) for a list of libraries to create a cryptocache environment.
 
 ---
 
 ## Installation Guide
 
-Info here
+1. Download the entire repository
+2. Open Git Terminal
+3. Navigate into the repository file path where you stored the files during the download.
+5. Make sure to create a separate virtual environment for the ethereum technologies (cryptocacheenv).
+6. Use [requirements.txt](requirements.txt) in the repository to install the libraries using the following commands:
+
+    - conda deactivate
+    - conda create -n cryptocacheenv python=3.7
+    - conda activate cryptocacheenv
+    - pip install -r requirements.txt
+    - If the previous command has errors try:
+        - conda install -r requirements.txt
+
+*See the [Usage](#usage) section below for instructions to run the notebook.
 
 ---
 
 ## Code Examples
 
-Info here
+### HTML Code
+
+```
+
+```
+
+### Solidity Contract Code
+
+```
+function orderPrint(
+        address buyer,
+        string memory country,
+        string memory state,
+        string memory city,
+        string memory streetAddress,
+        uint zipCode
+        ) public payable returns(uint) {
+
+        uint price = 10000000000000;
+        uint pricePaid = msg.value;
+
+        require (pricePaid >= price, “You need to deposit exactly 10000000000000 wei!“);
+```
+
+### 
+
 
 ---
 

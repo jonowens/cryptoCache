@@ -24,7 +24,10 @@ The purpose of this project is to design a webstore which will accept informatio
 
 ## Screenshots
 
+Physical coins available for printing and purchase
 
+![Blue Coin](./static/images/3d_print_vid_blue.gif)
+![Blue Coin](./static/images/3d_print_vid_pink.gif)
 
 ---
 
@@ -190,7 +193,7 @@ def newOrder():
 
 ## Status
 
-Project is: _in progress_
+Project is: _Complete_
 
 ---
 

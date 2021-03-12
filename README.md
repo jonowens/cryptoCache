@@ -160,7 +160,9 @@ def newOrder():
 
 ## Usage
 
-Info here
+- Submitting a color token order and paying with Ether.
+
+![Webstore Interaction](./static/images/webstoregif.gif)
 
 ---
 
